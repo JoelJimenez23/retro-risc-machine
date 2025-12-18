@@ -1,0 +1,5 @@
+main:
+LUI a0,0x70
+ADDI a0,a0,1
+
+exit:
