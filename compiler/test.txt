@@ -1,5 +1,18 @@
-main:
-LUI a0,0x70
-ADDI a0,a0,1
-
+start:
+    lui a0,0x70 
+    lui a5,0xa0  
+    lui a1,0    
+    lui a2,9    
+    lui a3,1    
+loop:
+    beq a1,a2,exit
+    sw a3,0(a0)  
+    addi a4,a3,9
+    sw a4,0(a5)
+    addi a3,a3,1
+    addi a0,a0,4 
+    addi a5,a5,4 
+    addi a1,a1,1 
+    j loop
 exit:
+

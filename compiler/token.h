@@ -38,7 +38,8 @@ typedef enum {
 	COLON,
 	COMMA,
 	ID,
-	NUM,
+	DEC,
+	HEX,
 	LPAREN,
 	RPAREN,
 	A0,
@@ -49,6 +50,7 @@ typedef enum {
 	A5,
 	A6,
 	A7,
+	ERR,
 	END
 } TokenType;
 
@@ -105,20 +107,9 @@ void token_list_pushback(Token **token_list, Token tk, int *longitud, int *capac
     (*longitud)++; 
 }
 
-Token nextToken(char *source, int begin, int *current_out, int end);
 
-Token* ejecutar_scanner(char *cadena,int longitud,int *size){
-	int current = 0;
-	int current_out = 0;
-	int capacidad = 1;
-	Token token;
-	Token *token_list = NULL;
-
-	while(1){
-		token = nextToken(cadena,0,&current_out,longitud);
-		token_list_pushback(&token_list,token,&current,&capacidad);
-		if(token.type == END){break;}
+void print_TokenList(Token **token_list,int size){
+	for (int i=0;i<size-1;i++){
+		printf("TOKEN: %s | %d \n",(*token_list)[i].text,(*token_list)[i].type);	
 	}
-	*size = current;
-	return token_list;
 }

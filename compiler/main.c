@@ -3,6 +3,8 @@
 #include "utils.h"
 #include "token.h"
 #include "scanner.h"
+#include "ast.h"
+#include "parser.h"
 
 int main(int argc, const char* argv[]){
 	if (argc != 2){
@@ -30,9 +32,11 @@ int main(int argc, const char* argv[]){
 	int size = 0;
 	Token *token_list = ejecutar_scanner(cadena,longitud,&size);
 	
-	for (int i=0;i<size-1;i++){
-		printf("TOKEN:%s\n",token_list[i].text);
-	}
+	print_TokenList(&token_list,size);
 	
+	Parser p;
+	parser_init(&p, token_list);
+
+
 	return 0;
 }

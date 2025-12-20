@@ -1,0 +1,51 @@
+Objects
+
+Tag
+- id
+- pc
+
+R-type
+- rs1
+- rs2
+- rd
+- op
+
+I-type
+- rs1 
+- imm
+- rd
+- op
+
+S-type
+- rs1
+- rs2 
+- imm
+- op
+
+B-type
+- rs1
+- rs2
+- label
+- op
+
+U-type
+- rd
+- imm
+
+J-type
+- rd
+- label
+- imm 
+
+
+
+S -> (id T | op_rtype R | op_itype I | op_ltype L | op_stype S | op_btype B | op_utype U | op_jtype J ) S
+T -> :
+R -> rd , rs1 , rs2 
+I -> rd, rs1 , imm  
+L -> rd , offset(rs1) #carga rd en el contendio de la direccion rs1 + offset 
+S -> rd , offset(rs1) 
+B -> rs1, rs2 , tag
+U -> rd , imm
+J -> rd , imm
+

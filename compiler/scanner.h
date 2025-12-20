@@ -21,66 +21,79 @@ Token nextToken(char *source,int begin,int *current_out,int end){
 	int first = current;
 
 	if(isdigit(c)) {
-		current++;
-		while (current < end && isdigit(source[current])) {
-			current++;
-		}
-		token = fetchToken_char_ptr(NUM,source,first,current);
-	}
+  	current++;
+    // CASO HEXADECIMAL: Si empieza con '0' y sigue una 'x' o 'X'
+    if (c == '0' && current < end && (source[current] == 'x' || source[current] == 'X')) {
+    	current++; // saltar la 'x'
+      while (current < end && isxdigit(source[current])) {
+     		current++;
+      }
+    	token = fetchToken_char_ptr(HEX, source, first, current); // Necesitas un tipo HEX en tu enum
+    } 
+    // CASO DECIMAL: Lo que ya tenías
+    else {
+    	while (current < end && isdigit(source[current])) {
+      	current++;
+      }
+      token = fetchToken_char_ptr(DEC, source, first, current);
+    }
+  }
 	else if (isalpha(c)) {
 		current++;
 		while (current < end && isalnum(source[current])){
 			current++;
 		}
-		char* lexema = (char*)malloc(sizeof(char) * (current-first));
+		int len = current - first;
+		char* lexema = (char*)malloc(sizeof(char) * (len+1));
 		for (int i=first,j=0;i<current;i++,j++){
 			lexema[j] = source[i];
 		}
+		lexema[len] = '\0';
 
-		if(strcmp(lexema,"ADD") == 0){token = fetchToken_char_ptr(ADD,source,first,current);}
-		else if(strcmp(lexema,"SUB") == 0){token = fetchToken_char_ptr(SUB,source,first,current);}
-		else if(strcmp(lexema,"XOR") == 0){token = fetchToken_char_ptr(XOR,source,first,current);}
-		else if(strcmp(lexema,"OR") == 0){token = fetchToken_char_ptr(OR,source,first,current);}
-		else if(strcmp(lexema,"AND") == 0){token = fetchToken_char_ptr(AND,source,first,current);}
-		else if(strcmp(lexema,"SLL") == 0){token = fetchToken_char_ptr(SLL,source,first,current);}
-		else if(strcmp(lexema,"SRL") == 0){token = fetchToken_char_ptr(SRL,source,first,current);}
-		else if(strcmp(lexema,"SRA") == 0){token = fetchToken_char_ptr(SRA,source,first,current);}
-		else if(strcmp(lexema,"SLT") == 0){token = fetchToken_char_ptr(SLT,source,first,current);}
-		else if(strcmp(lexema,"SLTU") == 0){token = fetchToken_char_ptr(SLTU,source,first,current);}
-		else if(strcmp(lexema,"ADDI") == 0){token = fetchToken_char_ptr(ADDI,source,first,current);}
-		else if(strcmp(lexema,"XORI") == 0){token = fetchToken_char_ptr(XORI,source,first,current);}
-		else if(strcmp(lexema,"ORI") == 0){token = fetchToken_char_ptr(ORI,source,first,current);}
-		else if(strcmp(lexema,"ANDI") == 0){token = fetchToken_char_ptr(ANDI,source,first,current);}
-		else if(strcmp(lexema,"SLLI") == 0){token = fetchToken_char_ptr(SLLI,source,first,current);}
-		else if(strcmp(lexema,"SRLI") == 0){token = fetchToken_char_ptr(SRLI,source,first,current);}
-		else if(strcmp(lexema,"SRAI") == 0){token = fetchToken_char_ptr(SRAI,source,first,current);}
-		else if(strcmp(lexema,"SLTI") == 0){token = fetchToken_char_ptr(SLTI,source,first,current);}
-		else if(strcmp(lexema,"SLTIU") == 0){token = fetchToken_char_ptr(SLTIU,source,first,current);}
-		else if(strcmp(lexema,"LB") == 0){token = fetchToken_char_ptr(LB,source,first,current);}
-		else if(strcmp(lexema,"LH") == 0){token = fetchToken_char_ptr(LH,source,first,current);}
-		else if(strcmp(lexema,"LW") == 0){token = fetchToken_char_ptr(LW,source,first,current);}
-		else if(strcmp(lexema,"LBU") == 0){token = fetchToken_char_ptr(LBU,source,first,current);}
-		else if(strcmp(lexema,"LHU") == 0){token = fetchToken_char_ptr(LHU,source,first,current);}
-		else if(strcmp(lexema,"SB") == 0){token = fetchToken_char_ptr(SB,source,first,current);}
-		else if(strcmp(lexema,"SH") == 0){token = fetchToken_char_ptr(SH,source,first,current);}
-		else if(strcmp(lexema,"SW") == 0){token = fetchToken_char_ptr(SW,source,first,current);}
-		else if(strcmp(lexema,"BEQ") == 0){token = fetchToken_char_ptr(BEQ,source,first,current);}
-		else if(strcmp(lexema,"BNE") == 0){token = fetchToken_char_ptr(BNE,source,first,current);}
-		else if(strcmp(lexema,"BLT") == 0){token = fetchToken_char_ptr(BLT,source,first,current);}
-		else if(strcmp(lexema,"BGE") == 0){token = fetchToken_char_ptr(BGE,source,first,current);}
-		else if(strcmp(lexema,"BLTU") == 0){token = fetchToken_char_ptr(BLTU,source,first,current);}
-		else if(strcmp(lexema,"BGEU") == 0){token = fetchToken_char_ptr(BGEU,source,first,current);}
-		else if(strcmp(lexema,"JAL") == 0){token = fetchToken_char_ptr(JAL,source,first,current);}
-		else if(strcmp(lexema,"JALR") == 0){token = fetchToken_char_ptr(JALR,source,first,current);}
-		else if(strcmp(lexema,"LUI") == 0){token = fetchToken_char_ptr(LUI,source,first,current);}
-		else if(strcmp(lexema,"A0") == 0){token = fetchToken_char_ptr(A0,source,first,current);}
-		else if(strcmp(lexema,"A1") == 0){token = fetchToken_char_ptr(A1,source,first,current);}
-		else if(strcmp(lexema,"A2") == 0){token = fetchToken_char_ptr(A2,source,first,current);}
-		else if(strcmp(lexema,"A3") == 0){token = fetchToken_char_ptr(A3,source,first,current);}
-		else if(strcmp(lexema,"A4") == 0){token = fetchToken_char_ptr(A4,source,first,current);}
-		else if(strcmp(lexema,"A5") == 0){token = fetchToken_char_ptr(A5,source,first,current);}
-		else if(strcmp(lexema,"A6") == 0){token = fetchToken_char_ptr(A6,source,first,current);}
-		else if(strcmp(lexema,"A7") == 0){token = fetchToken_char_ptr(A7,source,first,current);}
+		if(strcmp(lexema,"ADD") == 0 || strcmp(lexema,"add") == 0){token = fetchToken_char_ptr(ADD,source,first,current);}
+		else if(strcmp(lexema,"SUB") == 0  || strcmp(lexema,"sub") == 0){token = fetchToken_char_ptr(SUB,source,first,current);}
+		else if(strcmp(lexema,"XOR") == 0  || strcmp(lexema,"xor") == 0){token = fetchToken_char_ptr(XOR,source,first,current);}
+		else if(strcmp(lexema,"OR") == 0   || strcmp(lexema,"or") == 0){token = fetchToken_char_ptr(OR,source,first,current);}
+		else if(strcmp(lexema,"AND") == 0  || strcmp(lexema,"and") == 0){token = fetchToken_char_ptr(AND,source,first,current);}
+		else if(strcmp(lexema,"SLL") == 0  || strcmp(lexema,"sll") == 0){token = fetchToken_char_ptr(SLL,source,first,current);}
+		else if(strcmp(lexema,"SRL") == 0  || strcmp(lexema,"srl") == 0){token = fetchToken_char_ptr(SRL,source,first,current);}
+		else if(strcmp(lexema,"SRA") == 0  || strcmp(lexema,"sra") == 0){token = fetchToken_char_ptr(SRA,source,first,current);}
+		else if(strcmp(lexema,"SLT") == 0  || strcmp(lexema,"slt") == 0){token = fetchToken_char_ptr(SLT,source,first,current);}
+		else if(strcmp(lexema,"SLTU") == 0 || strcmp(lexema,"sltu") == 0){token = fetchToken_char_ptr(SLTU,source,first,current);}
+		else if(strcmp(lexema,"ADDI") == 0 || strcmp(lexema,"addi") == 0){token = fetchToken_char_ptr(ADDI,source,first,current);}
+		else if(strcmp(lexema,"XORI") == 0 || strcmp(lexema,"xori") == 0){token = fetchToken_char_ptr(XORI,source,first,current);}
+		else if(strcmp(lexema,"ORI") == 0  || strcmp(lexema,"ori") == 0){token = fetchToken_char_ptr(ORI,source,first,current);}
+		else if(strcmp(lexema,"ANDI") == 0 || strcmp(lexema,"andi") == 0){token = fetchToken_char_ptr(ANDI,source,first,current);}
+		else if(strcmp(lexema,"SLLI") == 0 || strcmp(lexema,"slli") == 0){token = fetchToken_char_ptr(SLLI,source,first,current);}
+		else if(strcmp(lexema,"SRLI") == 0 || strcmp(lexema,"srli") == 0){token = fetchToken_char_ptr(SRLI,source,first,current);}
+		else if(strcmp(lexema,"SRAI") == 0 || strcmp(lexema,"srai") == 0){token = fetchToken_char_ptr(SRAI,source,first,current);}
+		else if(strcmp(lexema,"SLTI") == 0 || strcmp(lexema,"slti") == 0){token = fetchToken_char_ptr(SLTI,source,first,current);}
+		else if(strcmp(lexema,"SLTIU") == 0||strcmp(lexema,"sltiu") == 0){token = fetchToken_char_ptr(SLTIU,source,first,current);}
+		else if(strcmp(lexema,"LB") == 0   ||strcmp(lexema,"lb") == 0){token = fetchToken_char_ptr(LB,source,first,current);}
+		else if(strcmp(lexema,"LH") == 0   ||strcmp(lexema,"lh") == 0){token = fetchToken_char_ptr(LH,source,first,current);}
+		else if(strcmp(lexema,"LW") == 0   ||strcmp(lexema,"lw") == 0){token = fetchToken_char_ptr(LW,source,first,current);}
+		else if(strcmp(lexema,"LBU") == 0  || strcmp(lexema,"lbu") == 0){token = fetchToken_char_ptr(LBU,source,first,current);}
+		else if(strcmp(lexema,"LHU") == 0  || strcmp(lexema,"lhu") == 0){token = fetchToken_char_ptr(LHU,source,first,current);}
+		else if(strcmp(lexema,"SB") == 0   || strcmp(lexema,"sb") == 0){token = fetchToken_char_ptr(SB,source,first,current);}
+		else if(strcmp(lexema,"SH") == 0   || strcmp(lexema,"sh") == 0){token = fetchToken_char_ptr(SH,source,first,current);}
+		else if(strcmp(lexema,"SW") == 0   || strcmp(lexema,"sw") == 0){token = fetchToken_char_ptr(SW,source,first,current);}
+		else if(strcmp(lexema,"BEQ") == 0  || strcmp(lexema,"beq") == 0){token = fetchToken_char_ptr(BEQ,source,first,current);}
+		else if(strcmp(lexema,"BNE") == 0  || strcmp(lexema,"bne") == 0){token = fetchToken_char_ptr(BNE,source,first,current);}
+		else if(strcmp(lexema,"BLT") == 0  || strcmp(lexema,"blt") == 0){token = fetchToken_char_ptr(BLT,source,first,current);}
+		else if(strcmp(lexema,"BGE") == 0  || strcmp(lexema,"bge") == 0){token = fetchToken_char_ptr(BGE,source,first,current);}
+		else if(strcmp(lexema,"BLTU") == 0 || strcmp(lexema,"bltu") == 0){token = fetchToken_char_ptr(BLTU,source,first,current);}
+		else if(strcmp(lexema,"BGEU") == 0 || strcmp(lexema,"bgeu") == 0){token = fetchToken_char_ptr(BGEU,source,first,current);}
+		else if(strcmp(lexema,"JAL") == 0  || strcmp(lexema,"jal") == 0){token = fetchToken_char_ptr(JAL,source,first,current);}
+		else if(strcmp(lexema,"JALR") == 0 || strcmp(lexema,"jalr") == 0){token = fetchToken_char_ptr(JALR,source,first,current);}
+		else if(strcmp(lexema,"LUI") == 0  || strcmp(lexema,"lui") == 0){token = fetchToken_char_ptr(LUI,source,first,current);}
+		else if(strcmp(lexema,"A0") == 0   || strcmp(lexema,"a0") == 0){token = fetchToken_char_ptr(A0,source,first,current);}
+		else if(strcmp(lexema,"A1") == 0   || strcmp(lexema,"a1") == 0){token = fetchToken_char_ptr(A1,source,first,current);}
+		else if(strcmp(lexema,"A2") == 0   || strcmp(lexema,"a2") == 0){token = fetchToken_char_ptr(A2,source,first,current);}
+		else if(strcmp(lexema,"A3") == 0   || strcmp(lexema,"a3") == 0){token = fetchToken_char_ptr(A3,source,first,current);}
+		else if(strcmp(lexema,"A4") == 0   || strcmp(lexema,"a4") == 0){token = fetchToken_char_ptr(A4,source,first,current);}
+		else if(strcmp(lexema,"A5") == 0   || strcmp(lexema,"a5") == 0){token = fetchToken_char_ptr(A5,source,first,current);}
+		else if(strcmp(lexema,"A6") == 0   || strcmp(lexema,"a6") == 0){token = fetchToken_char_ptr(A6,source,first,current);}
+		else if(strcmp(lexema,"A7") == 0   || strcmp(lexema,"a7") == 0){token = fetchToken_char_ptr(A7,source,first,current);}
 		
 		else {token = fetchToken_char_ptr(ID,source,first,current);}
 
@@ -110,3 +123,20 @@ Token nextToken(char *source,int begin,int *current_out,int end){
 	*current_out = current;
 	return token;
 }
+
+Token* ejecutar_scanner(char *cadena,int longitud,int *size){
+	int current = 0;
+	int current_out = 0;
+	int capacidad = 1;
+	Token token;
+	Token *token_list = NULL;
+
+	while(1){
+		token = nextToken(cadena,0,&current_out,longitud);
+		token_list_pushback(&token_list,token,&current,&capacidad);
+		if(token.type == END){break;}
+	}
+	*size = current;
+	return token_list;
+}
+
