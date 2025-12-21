@@ -15,7 +15,7 @@ char* file_to_string(FILE *fp, int *longitud_out) {
         str[longitud++] = c;
     }
     str[longitud] = '\0';
-    *longitud_out = longitud; // Set the length via pointer
-    return str; // Return the actual allocated memory
+    *longitud_out = longitud;
+    return str;
 }
 

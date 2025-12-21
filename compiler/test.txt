@@ -15,4 +15,3 @@ loop:
     addi a1,a1,1 
     j loop
 exit:
-
