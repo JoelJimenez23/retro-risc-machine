@@ -69,6 +69,7 @@ module datapath(
 
 	regfile rf(
 		.clk(clk),
+		.reset(reset),
 		.we3(RegWrite),
 		.ra1(Instr[19:15]),
 		.ra2(Instr[24:20]),
@@ -77,6 +78,8 @@ module datapath(
 		.rd1(preSrcA),
 		.rd2(preSrcB)
 	);
+	
+	assign WriteData = preSrcB;
 
 	extend ex(
 		.Instr(Instr),
@@ -107,6 +110,7 @@ module datapath(
 		.Zero(Zero),
 		.Sub(Sub)
 	);
+
 
 	adder #(32) adder_pctarget(
 		.a(PC),
