@@ -1,0 +1,10 @@
+	sw sp , 0(fp) 
+	addi sp,sp,-4 
+	addi fp,sp,0   
+	addi fp,fp,-16 
+	addi ra,ra,5
+	sw ra,-8(fp)
+	addi ra,zero,7
+	sw ra,-16(fp)
+	lw a0,-8(fp)
+	lw a1,-16(fp)

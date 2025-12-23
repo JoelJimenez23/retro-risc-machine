@@ -32,28 +32,63 @@ int get_label_pc(label_info* lblst, int size, char* target_label) {
 }
 
 char* num_to_binary(char* input, int size) {
+    // strtol reconoce automáticamente el '-' al inicio y el prefijo '0x'
     long number = strtol(input, NULL, 0);
+    
     char* binary_str = (char*)malloc(size + 1);
     if (binary_str == NULL) return NULL;
 
-    for (int i = size - 1; i >= 0; i--) {
-        binary_str[i] = (number & 1) ? '1' : '0';
-        number >>= 1;
-    }
-    binary_str[size] = '\0'; 
+    // Usamos un unsigned para asegurar que el desplazamiento sea lógico
+    // Esto es crucial para que los números negativos rellenen con '1' correctamente
+    unsigned long u_number = (unsigned long)number;
 
+    for (int i = size - 1; i >= 0; i--) {
+        // Extraemos el bit menos significativo
+        binary_str[i] = (u_number & 1) ? '1' : '0';
+        // Desplazamos a la derecha
+        u_number >>= 1;
+    }
+    
+    binary_str[size] = '\0';  
     return binary_str;
 }
 
+
 char* reg_to_binary(char* input) {
 	
-	if(strcmp(input,"a0") == 0 ){ return "00000"; }
-	if(strcmp(input,"a1") == 0 ){ return "00001"; }
-	if(strcmp(input,"a2") == 0 ){ return "00010"; }
-	if(strcmp(input,"a3") == 0 ){ return "00011"; }
-	if(strcmp(input,"a4") == 0 ){ return "00100"; }
-	if(strcmp(input,"a5") == 0 ){ return "00101"; }
-	if(strcmp(input,"a6") == 0 ){ return "00110"; }
+	if(strcmp(input,"zero") == 0 ){ return "00000"; }
+	if(strcmp(input,"ra") == 0 ){ return "00001"; }
+	if(strcmp(input,"sp") == 0 ){ return "00010"; } // 2
+	if(strcmp(input,"gp") == 0 ){ return "00011"; }
+	if(strcmp(input,"tp") == 0 ){ return "00100"; }
+	if(strcmp(input,"t0") == 0 ){ return "00101"; }
+	if(strcmp(input,"t1") == 0 ){ return "00110"; }
+	if(strcmp(input,"t2") == 0 ){ return "00111"; }
+	if(strcmp(input,"s0") == 0  || strcmp(input,"fp") == 0){ return "01000"; } //8
+	if(strcmp(input,"s1") == 0 ){ return "01001"; }
+	if(strcmp(input,"a0") == 0 ){ return "01010"; } //10
+	if(strcmp(input,"a1") == 0 ){ return "01011"; } //11
+	if(strcmp(input,"a2") == 0 ){ return "01100"; } //12
+	if(strcmp(input,"a3") == 0 ){ return "01101"; } //13
+	if(strcmp(input,"a4") == 0 ){ return "01110"; }
+	if(strcmp(input,"a5") == 0 ){ return "01111"; }
+	if(strcmp(input,"a6") == 0 ){ return "10000"; }
+	if(strcmp(input,"a7") == 0 ){ return "10001"; }
+	if(strcmp(input,"s2") == 0 ){ return "10010"; }
+	if(strcmp(input,"s3") == 0 ){ return "10011"; }
+	if(strcmp(input,"s4") == 0 ){ return "10100"; }
+	if(strcmp(input,"s5") == 0 ){ return "10101"; }
+	if(strcmp(input,"s6") == 0 ){ return "10110"; }
+	if(strcmp(input,"s7") == 0 ){ return "10111"; }
+	if(strcmp(input,"s8") == 0 ){ return "11000"; }
+	if(strcmp(input,"s9") == 0 ){ return "11001"; }
+	if(strcmp(input,"s10") == 0 ){ return "11010"; }
+	if(strcmp(input,"s11") == 0 ){ return "11011"; }
+	if(strcmp(input,"t3") == 0 ){ return "11100"; }
+	if(strcmp(input,"t4") == 0 ){ return "11101"; }
+	if(strcmp(input,"t5") == 0 ){ return "11110"; }
+	if(strcmp(input,"t6") == 0 ){ return "11111"; }
+
 
 	return "00000";
 }
@@ -133,11 +168,11 @@ char* generate_code(Instruction *il,int in){
 			const char* rs1 = reg_to_binary(il[i].data.l.rs1);
 			const char* rs2  = reg_to_binary(il[i].data.l.rs2);
 
-			if((*(il+i)).data.l.op == LB) sprintf(current_ptr, "%s%s000%s0000011",imm,rs1,rs2); 				
-			else if((*(il+i)).data.l.op == LH) sprintf(current_ptr , "%s%s001%s0000011",imm,rs1,rs2);				
-			else if((*(il+i)).data.l.op == LW) sprintf(current_ptr, "%s%s010%s0000011",imm,rs1,rs2);		
-			else if((*(il+i)).data.l.op == LBU) sprintf(current_ptr , "%s%s100%s0000011",imm,rs1,rs2);				
-			else if((*(il+i)).data.l.op == LHU) sprintf(current_ptr, "%s%s101%s0000011",imm,rs1,rs2);		
+			if((*(il+i)).data.l.op == LB) sprintf(current_ptr, "%s%s000%s0000011",imm,rs2,rs1); 				
+			else if((*(il+i)).data.l.op == LH) sprintf(current_ptr , "%s%s001%s0000011",imm,rs2,rs1);				
+			else if((*(il+i)).data.l.op == LW) sprintf(current_ptr, "%s%s010%s0000011",imm,rs2,rs1);		
+			else if((*(il+i)).data.l.op == LBU) sprintf(current_ptr , "%s%s100%s0000011",imm,rs2,rs1);				
+			else if((*(il+i)).data.l.op == LHU) sprintf(current_ptr, "%s%s101%s0000011",imm,rs2,rs1);		
 			curr_instr++;
 		}
 
@@ -150,7 +185,7 @@ char* generate_code(Instruction *il,int in){
 
 			if(il[i].data.s.op == SB)      sprintf(current_ptr, "%s%s%s000%s0100011", imm_11_5, rs2, rs1, imm_4_0);
 			else if(il[i].data.s.op == SH) sprintf(current_ptr, "%s%s%s001%s0100011", imm_11_5, rs2, rs1, imm_4_0);
-			else if(il[i].data.s.op == SW) sprintf(current_ptr, "%s%s%s010%s0100011", imm_11_5, rs2, rs1, imm_4_0);
+			else if(il[i].data.s.op == SW) sprintf(current_ptr, "%s%s%s010%s0100011", imm_11_5, rs1, rs2, imm_4_0);
 
 			free(imm); free(imm_11_5); free(imm_4_0);
 			curr_instr++;
