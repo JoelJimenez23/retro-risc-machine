@@ -1,4 +1,4 @@
-	sw sp , 0(fp) 
+	sw fp , 0(sp) 
 	addi sp,sp,-4 //push rbp
 	addi fp,sp,0 //  rsp -> rbp
 	addi fp,fp,-16 //

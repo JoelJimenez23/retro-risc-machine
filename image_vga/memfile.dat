@@ -1,0 +1,783 @@
+addi a0, zero, 0
+addi a1, zero, 0
+addi a2, zero, 15
+addi a3, zero, 8
+addi a4, zero, 0
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 15
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 30
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 45
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 60
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 75
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 90
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 105
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 120
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 135
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 150
+addi a2, zero, 10
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 0
+addi a1, zero, 8
+addi a2, zero, 15
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 15
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 30
+addi a2, zero, 10
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 40
+addi a2, zero, 15
+addi a4, zero, 181
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 55
+addi a2, zero, 1
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 56
+addi a2, zero, 8
+addi a4, zero, 145
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 64
+addi a2, zero, 15
+addi a4, zero, 0
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 79
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 94
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 109
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 124
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 139
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 154
+addi a2, zero, 6
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 0
+addi a1, zero, 16
+addi a2, zero, 15
+addi a3, zero, 15
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 15
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 30
+addi a2, zero, 2
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 0
+addi a1, zero, 31
+addi a2, zero, 15
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 15
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 30
+addi a2, zero, 2
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 0
+addi a1, zero, 46
+addi a2, zero, 15
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 15
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 30
+addi a2, zero, 2
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 0
+addi a1, zero, 61
+addi a2, zero, 15
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 15
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 30
+addi a2, zero, 2
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 0
+addi a1, zero, 76
+addi a2, zero, 15
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 15
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 30
+addi a2, zero, 2
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 0
+addi a1, zero, 91
+addi a2, zero, 15
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 15
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 30
+addi a2, zero, 2
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 0
+addi a1, zero, 106
+addi a2, zero, 15
+addi a3, zero, 14
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 15
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 30
+addi a2, zero, 2
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 32
+addi a1, zero, 16
+addi a2, zero, 8
+addi a3, zero, 15
+addi a4, zero, 145
+color a0, a1, a2, a3, a4
+
+addi a1, zero, 31
+addi a3, zero, 1
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 40
+addi a1, zero, 16
+addi a3, zero, 15
+addi a4, zero, 181
+color a0, a1, a2, a3, a4
+
+addi a1, zero, 31
+addi a3, zero, 9
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 48
+addi a1, zero, 16
+addi a2, zero, 15
+addi a3, zero, 15
+addi a4, zero, 213
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 63
+addi a2, zero, 1
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 48
+addi a1, zero, 31
+addi a2, zero, 15
+addi a3, zero, 1
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 63
+addi a2, zero, 1
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 64
+addi a1, zero, 16
+addi a2, zero, 8
+addi a3, zero, 15
+addi a4, zero, 145
+color a0, a1, a2, a3, a4
+
+addi a1, zero, 31
+addi a3, zero, 9
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 72
+addi a1, zero, 16
+addi a2, zero, 15
+addi a3, zero, 8
+addi a4, zero, 0
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 87
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 102
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 117
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 132
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 147
+addi a2, zero, 13
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 72
+addi a1, zero, 24
+addi a2, zero, 8
+addi a4, zero, 145
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 80
+addi a2, zero, 15
+addi a3, zero, 15
+addi a4, zero, 0
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 95
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 110
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 125
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 140
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 155
+addi a2, zero, 5
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 80
+addi a1, zero, 39
+addi a2, zero, 15
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 95
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 110
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 125
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 140
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 155
+addi a2, zero, 5
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 80
+addi a1, zero, 54
+addi a2, zero, 15
+addi a3, zero, 10
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 95
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 110
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 125
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 140
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 155
+addi a2, zero, 5
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 32
+addi a1, zero, 32
+addi a2, zero, 8
+addi a3, zero, 8
+addi a4, zero, 109
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 48
+addi a2, zero, 15
+addi a4, zero, 181
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 63
+addi a2, zero, 1
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 72
+addi a2, zero, 8
+addi a3, zero, 15
+addi a4, zero, 0
+color a0, a1, a2, a3, a4
+
+addi a1, zero, 47
+addi a3, zero, 1
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 32
+addi a1, zero, 40
+addi a3, zero, 15
+color a0, a1, a2, a3, a4
+
+addi a1, zero, 55
+color a0, a1, a2, a3, a4
+
+addi a1, zero, 70
+color a0, a1, a2, a3, a4
+
+addi a1, zero, 85
+color a0, a1, a2, a3, a4
+
+addi a1, zero, 100
+color a0, a1, a2, a3, a4
+
+addi a1, zero, 115
+addi a3, zero, 5
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 40
+addi a1, zero, 40
+addi a3, zero, 8
+addi a4, zero, 109
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 48
+addi a2, zero, 15
+addi a3, zero, 15
+addi a4, zero, 0
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 63
+addi a2, zero, 1
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 48
+addi a1, zero, 55
+addi a2, zero, 15
+addi a3, zero, 1
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 63
+addi a2, zero, 1
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 64
+addi a1, zero, 40
+addi a2, zero, 8
+addi a3, zero, 15
+addi a4, zero, 109
+color a0, a1, a2, a3, a4
+
+addi a1, zero, 55
+addi a3, zero, 9
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 40
+addi a1, zero, 48
+addi a3, zero, 8
+addi a4, zero, 72
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 72
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 40
+addi a1, zero, 56
+addi a3, zero, 15
+addi a4, zero, 0
+color a0, a1, a2, a3, a4
+
+addi a1, zero, 71
+color a0, a1, a2, a3, a4
+
+addi a1, zero, 86
+color a0, a1, a2, a3, a4
+
+addi a1, zero, 101
+color a0, a1, a2, a3, a4
+
+addi a1, zero, 116
+addi a3, zero, 4
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 48
+addi a1, zero, 56
+addi a3, zero, 8
+addi a4, zero, 36
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 56
+addi a4, zero, 32
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 72
+addi a4, zero, 109
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 48
+addi a1, zero, 64
+addi a2, zero, 15
+addi a3, zero, 15
+addi a4, zero, 0
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 63
+addi a2, zero, 1
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 48
+addi a1, zero, 79
+addi a2, zero, 15
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 63
+addi a2, zero, 1
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 48
+addi a1, zero, 94
+addi a2, zero, 15
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 63
+addi a2, zero, 1
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 48
+addi a1, zero, 109
+addi a2, zero, 15
+addi a3, zero, 11
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 63
+addi a2, zero, 1
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 64
+addi a1, zero, 64
+addi a2, zero, 8
+addi a3, zero, 8
+addi a4, zero, 68
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 72
+addi a4, zero, 36
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 80
+addi a4, zero, 32
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 88
+addi a2, zero, 15
+addi a4, zero, 0
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 103
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 118
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 133
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 148
+addi a2, zero, 12
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 64
+addi a1, zero, 72
+addi a2, zero, 15
+addi a3, zero, 15
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 79
+addi a2, zero, 1
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 64
+addi a1, zero, 87
+addi a2, zero, 15
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 79
+addi a2, zero, 1
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 64
+addi a1, zero, 102
+addi a2, zero, 15
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 79
+addi a2, zero, 1
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 64
+addi a1, zero, 117
+addi a2, zero, 15
+addi a3, zero, 3
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 79
+addi a2, zero, 1
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 80
+addi a1, zero, 72
+addi a2, zero, 8
+addi a3, zero, 8
+addi a4, zero, 109
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 88
+addi a3, zero, 15
+addi a4, zero, 68
+color a0, a1, a2, a3, a4
+
+addi a1, zero, 87
+addi a3, zero, 1
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 96
+addi a1, zero, 72
+addi a3, zero, 8
+addi a4, zero, 109
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 104
+addi a2, zero, 15
+addi a4, zero, 0
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 119
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 134
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 149
+addi a2, zero, 11
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 80
+addi a1, zero, 80
+addi a2, zero, 8
+addi a3, zero, 15
+color a0, a1, a2, a3, a4
+
+addi a1, zero, 95
+color a0, a1, a2, a3, a4
+
+addi a1, zero, 110
+addi a3, zero, 10
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 96
+addi a1, zero, 80
+addi a3, zero, 8
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 104
+addi a4, zero, 109
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 112
+addi a4, zero, 0
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 120
+addi a3, zero, 15
+addi a4, zero, 32
+color a0, a1, a2, a3, a4
+
+addi a1, zero, 95
+addi a3, zero, 1
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 128
+addi a1, zero, 80
+addi a2, zero, 15
+addi a3, zero, 8
+addi a4, zero, 0
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 143
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 158
+addi a2, zero, 2
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 88
+addi a1, zero, 88
+addi a2, zero, 15
+addi a4, zero, 109
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 103
+addi a2, zero, 1
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 104
+addi a2, zero, 8
+addi a4, zero, 36
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 112
+addi a3, zero, 15
+addi a4, zero, 109
+color a0, a1, a2, a3, a4
+
+addi a1, zero, 103
+addi a3, zero, 9
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 128
+addi a1, zero, 88
+addi a3, zero, 8
+addi a4, zero, 72
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 136
+addi a2, zero, 15
+addi a3, zero, 15
+addi a4, zero, 0
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 151
+addi a2, zero, 9
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 136
+addi a1, zero, 103
+addi a2, zero, 15
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 151
+addi a2, zero, 9
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 136
+addi a1, zero, 118
+addi a2, zero, 15
+addi a3, zero, 2
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 151
+addi a2, zero, 9
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 88
+addi a1, zero, 96
+addi a2, zero, 8
+addi a3, zero, 8
+addi a4, zero, 72
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 96
+addi a4, zero, 68
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 104
+addi a4, zero, 72
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 120
+addi a2, zero, 15
+addi a4, zero, 109
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 135
+addi a2, zero, 1
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 88
+addi a1, zero, 104
+addi a2, zero, 8
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 96
+addi a2, zero, 15
+addi a3, zero, 15
+addi a4, zero, 0
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 111
+addi a2, zero, 1
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 96
+addi a1, zero, 119
+addi a2, zero, 15
+addi a3, zero, 1
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 111
+addi a2, zero, 1
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 120
+addi a1, zero, 104
+addi a2, zero, 8
+addi a3, zero, 8
+addi a4, zero, 213
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 128
+addi a3, zero, 15
+addi a4, zero, 0
+color a0, a1, a2, a3, a4
+
+addi a1, zero, 119
+addi a3, zero, 1
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 88
+addi a1, zero, 112
+addi a3, zero, 8
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 112
+addi a2, zero, 15
+color a0, a1, a2, a3, a4
+
+addi a0, zero, 127
+addi a2, zero, 1
+color a0, a1, a2, a3, a4
+
+loop:
+addi t0, t0, 0
+j loop

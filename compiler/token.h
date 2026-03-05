@@ -42,6 +42,7 @@ typedef enum {
 	RPAREN,
 	REG,
 	ERR,
+	COLOR,
 	END
 } TokenType;
 

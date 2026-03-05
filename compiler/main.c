@@ -41,9 +41,25 @@ int main(int argc, const char* argv[]){
 
 
 	char * code = generate_code(instruction_list,instruction_number);
+  // 
+	FILE *out = fopen("memfile.dat", "w");
+  if (!out) {
+  	perror("No se pudo crear memefile.dat");
+    return 4;
+  }
+
+  for(int i = 0; i < instruction_number; i++) {
+  	fwrite(&code[i*32], 1, 32, out);
+    fputc('\n', out);
+  }
+
+	fclose(out);	
+
+	/*
 	for(int i = 0; i < instruction_number; i++) {
 		printf("%.32s\n", &code[i*32]);
 	}
+	*/
 
 	return 0;
 }

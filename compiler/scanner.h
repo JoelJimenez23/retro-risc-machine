@@ -89,6 +89,7 @@ Token nextToken(char *source,int begin,int *current_out,int end){
 		else if(strcmp(lexema,"BGEU") == 0 || strcmp(lexema,"bgeu") == 0){token = fetchToken_char_ptr(BGEU,source,first,current);}
 		else if(strcmp(lexema,"LUI") == 0  || strcmp(lexema,"lui") == 0){token = fetchToken_char_ptr(LUI,source,first,current);}
 		else if(strcmp(lexema,"ZERO") == 0 || strcmp(lexema,"zero") == 0){token = fetchToken_char_ptr(REG,source,first,current);}
+		else if(strcmp(lexema,"COLOR") == 0 || strcmp(lexema,"color") == 0){token = fetchToken_char_ptr(COLOR,source,first,current);}
 		else if(strcmp(lexema,"RA") == 0 || strcmp(lexema,"ra") == 0){token = fetchToken_char_ptr(REG,source,first,current);}	
 		else if(strcmp(lexema,"SP") == 0 || strcmp(lexema,"sp") == 0){token = fetchToken_char_ptr(REG,source,first,current);}	
 		else if(strcmp(lexema,"GP") == 0 || strcmp(lexema,"gp") == 0){token = fetchToken_char_ptr(REG,source,first,current);}	

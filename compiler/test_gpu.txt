@@ -1,0 +1,14 @@
+addi a0,a0,1
+addi a1,a1,1
+addi a2,a2,7
+addi a3,a3,0
+addi a4,a4,240
+addi a5,a0,20
+addi a6,a0,10
+addi a7,a1,10
+color a0,a1,a2,a3,a4
+color a5,a1,a2,a3,a4
+color a6,a7,a2,a3,a4
+loop:
+addi t0,t0,0
+j loop

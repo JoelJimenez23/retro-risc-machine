@@ -17,7 +17,7 @@ void label_info_pushback(label_info **lblst,char **lb,int pc,int* longitud,int *
     }
 		label_info li;
 		li.label = *lb;
-		li.pc = pc*4;
+		li.pc = (pc*4);
     (*lblst)[*longitud] = li; 
     (*longitud)++; 
 }
@@ -118,9 +118,12 @@ char* generate_code(Instruction *il,int in){
 	int lblst_cap = 4;
 	label_info *lblst = NULL;
 	
+	int emmited = 0;
 	for (int i = 0; i < in; i++) {
 		if (il[i].i_type == T_TYPE) {
-			label_info_pushback(&lblst, &il[i].data.t.label, il[i].i_num, &lblst_size, &lblst_cap);
+			label_info_pushback(&lblst, &il[i].data.t.label, emmited , &lblst_size, &lblst_cap);
+		} else {
+			emmited++;
 		}
 	}
 
@@ -128,8 +131,17 @@ char* generate_code(Instruction *il,int in){
 
 	for (int i=0;i<in;i++){
 		char* current_ptr = &program[32 * curr_instr];
-
-		if(il[i].i_type == R_TYPE ) {
+		
+		if (il[i].i_type == C_TYPE) {
+			const char* rs1  = reg_to_binary(il[i].data.c.rs1); // x
+			const char* rs2  = reg_to_binary(il[i].data.c.rs2); // y
+			const char* rs3  = reg_to_binary(il[i].data.c.rs3); // w
+			const char* rs4  = reg_to_binary(il[i].data.c.rs4); // h
+			const char* rs5  = reg_to_binary(il[i].data.c.rs5); // c
+			sprintf(current_ptr,"%s%s%s%s%s0000111",rs5,rs4,rs3,rs2,rs1);
+			curr_instr++;
+		}
+		else if(il[i].i_type == R_TYPE ) {
 			const char* rs2 = reg_to_binary(il[i].data.r.rs2);
 			const char* rs1 = reg_to_binary(il[i].data.r.rs1);
 			const char* rd  = reg_to_binary(il[i].data.r.rd);
@@ -194,7 +206,7 @@ char* generate_code(Instruction *il,int in){
 
 		else if (il[i].i_type == B_TYPE) {
 			int pc_destino = get_label_pc(lblst, lblst_size, il[i].data.b.label);
-			int pc_actual = il[i].i_num * 4;
+			int pc_actual = curr_instr * 4;
 			int offset = pc_destino - pc_actual;
 
 			char offset_str[20];
@@ -224,7 +236,7 @@ char* generate_code(Instruction *il,int in){
 
 		else if (il[i].i_type == J_TYPE) {
 			int pc_destino = get_label_pc(lblst, lblst_size, il[i].data.j.label);
-			int pc_actual = il[i].i_num * 4;
+			int pc_actual = curr_instr * 4;
 			int offset = pc_destino - pc_actual;
 
 			char offset_str[20];

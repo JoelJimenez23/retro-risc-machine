@@ -72,6 +72,25 @@ Instruction* parser_Program(Parser *p,int *instr_cant) {
 			Instruction_list_pushback(&instruction_list,instr,instr_cant,&capacidad);
 			parser_match(p,COLON);
 		} 
+		else if(parser_check(p,COLOR)){
+			parser_match(p,COLOR);
+			parser_match(p,REG);
+			char *rs1 = p->previous->text;
+			parser_match(p,COMMA);
+			parser_match(p,REG);
+			char *rs2 = p->previous->text;
+			parser_match(p,COMMA);
+			parser_match(p,REG);
+			char *rs3 = p->previous->text;
+			parser_match(p,COMMA);
+			parser_match(p,REG);
+			char *rs4 = p->previous->text;
+			parser_match(p,COMMA);
+			parser_match(p,REG);
+			char *rs5 = p->previous->text;
+			instr = new_c_type(rs1,rs2,rs3,rs4,rs5);
+			Instruction_list_pushback(&instruction_list,instr,instr_cant,&capacidad);
+		}
 		else if(parser_check(p,LUI)){
 			parser_match(p,LUI);
 			parser_match(p,REG);

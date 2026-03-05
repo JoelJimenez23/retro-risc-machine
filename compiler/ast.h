@@ -6,12 +6,21 @@ typedef enum {
 	L_TYPE,
 	B_TYPE,
 	U_TYPE,
-	J_TYPE
+	J_TYPE,
+	C_TYPE
 } Instr_Type;
 
 typedef struct {
 	char *label;
 } Tag;
+
+typedef struct {
+	char *rs1;
+	char *rs2;
+	char *rs3;
+	char *rs4;
+	char *rs5;
+} Ctype;
 
 typedef struct {
 	char *rs1;
@@ -69,6 +78,7 @@ typedef struct {
 		Btype b;
 		Utype u;
 		Jtype j;
+		Ctype c;
 	} data;
 } Instruction;
 
@@ -155,6 +165,18 @@ Instruction new_j_type(char *label,int i_num) {
 	inst.i_num = i_num;
 	inst.i_type = J_TYPE;
 	inst.data.j.label = label;
+
+	return inst;
+}
+
+Instruction new_c_type(char *rs1,char *rs2,char *rs3,char *rs4,char* rs5) {
+	Instruction inst;
+	inst.i_type = C_TYPE;
+	inst.data.c.rs1 = rs1;
+	inst.data.c.rs2 = rs2;
+	inst.data.c.rs3 = rs3;
+	inst.data.c.rs4 = rs4;
+	inst.data.c.rs5 = rs5;
 
 	return inst;
 }
