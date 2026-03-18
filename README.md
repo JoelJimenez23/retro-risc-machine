@@ -249,16 +249,3 @@ Interested in:
 * Hardware Acceleration (AI)
 
 ---
-
-# 🧠 Feedback real (importante)
-
-Tu proyecto **ya está en nivel serio**, no es básico. Pero para que sea fuerte de verdad (tipo maestría / paper), le faltan estas cosas clave:
-
-### 🔥 Lo más importante que falta
-
-* Pipeline (esto es *CRÍTICO*)
-* ISA bien definida (aunque sea subset formal de RISC-V)
-* Benchmarks (aunque sean simples)
-* Documentar decisiones de diseño
-
----
